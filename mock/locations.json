@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "226e506a-1f40-49a6-98e0-1dc00c9b7447",
+    "name": "Location One",
+    "safeName": "location-one",
+    "body": "<p>test 1234</p>",
+    "__v": 0
+  },
+  {
+    "_id": "c5348daf-ee53-44ae-bfc6-2b3584d33ce5",
+    "name": "Location Two",
+    "safeName": "location two",
+    "body": "<p>test 5678</p>",
+    "__v": 0
+  }
+]

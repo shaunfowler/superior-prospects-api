@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "a43b6091-b8d3-40a1-9663-05f1c01bceac",
+    "fileName": "Intl Lithium drill core.jpg",
+    "fileSize": "0",
+    "propertyRefId": "0afe6732-2117-42a9-b5b0-d60128ef0403",
+    "type": "jpg",
+    "created": "2014-12-31T05:10:00",
+    "__v": 0
+  },
+  {
+    "_id": "9caf64b2-ddf9-4e7c-bde4-29da23e2a455",
+    "fileName": "Nicopor Inco.jpg",
+    "fileSize": "0",
+    "propertyRefId": "23192cd2-42e9-42c6-a4ce-f6db82f2c23d",
+    "type": "jpg",
+    "created": "2014-12-31T21:13:00",
+    "__v": 0
+  }
+]
