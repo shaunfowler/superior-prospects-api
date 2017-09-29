@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "nodemon": "nodemon server.js",
+    "build:image": "docker build -t sp_server -f Dockerfile .",
+    "build:image:mongo_seed":
+      "docker build -t sp_mongo_seed -f Dockerfile.mongo_seed .",
+    "build:images": "npm run build:image:mongo_seed && npm run build:image"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}

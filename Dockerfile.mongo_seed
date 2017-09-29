@@ -1,0 +1,11 @@
+FROM mongo:latest
+
+WORKDIR /tmp
+
+COPY ./mock/locations.json ./locations.json
+COPY ./mock/media.json ./media.json
+COPY ./mock/updates.json ./updates.json
+COPY ./mock/properties.json ./properties.json
+COPY ./mock/import-mock-data-to-mongo.sh ./import-mock-data-to-mongo.sh
+
+CMD ./import-mock-data-to-mongo.sh

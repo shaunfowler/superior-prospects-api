@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "0afe6732-2117-42a9-b5b0-d60128ef0403",
+    "name": "Property One",
+    "safeName": "property-one",
+    "description": "desc 1234",
+    "visible": true,
+    "locationRefId": "226e506a-1f40-49a6-98e0-1dc00c9b7447",
+    "created": "2013-04-07T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "23192cd2-42e9-42c6-a4ce-f6db82f2c23d",
+    "name": "Property Two",
+    "safeName": "property-two",
+    "description": "desc 5678",
+    "visible": true,
+    "locationRefId": "c5348daf-ee53-44ae-bfc6-2b3584d33ce5",
+    "created": "2014-12-31T21:09:00.000Z",
+    "__v": 0
+  }
+]
