@@ -11,7 +11,6 @@ mongoose
 
 // Setup express routes
 var app = express();
-app.use("/locations", locationsRoute);
 
 // Health endpoint
 app.get("/health", (req, res) => {
