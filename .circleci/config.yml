@@ -35,5 +35,5 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker push $DOCKER_REPO:latest
             else
-              docker push $DOCKER_REPO:$VER
+              docker push $DOCKER_REPO:$CIRCLE_SHA1
             fi
