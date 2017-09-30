@@ -10,5 +10,5 @@ jobs:
       - checkout
 
       - run: 
-        name: Restore npm packages
-        command: npm install
+          name: Restore npm packages
+          command: npm install
