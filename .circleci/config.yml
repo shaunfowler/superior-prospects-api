@@ -9,6 +9,20 @@ jobs:
     steps:
       - checkout
 
-      - run: 
-          name: Restore npm packages
-          command: npm install
+      - run: npm install
+
+      - run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
+
+      - run: npm run build:image
+      
+      - run: npm run build:image:mongo_seed
+
+      - deploy:
+          name: Deploy
+          command: |
+            set -euo pipefail
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker push $DOCKER_REPO:latest
+            else
+              docker push $DOCKER_REPO:$VER
+            fi
