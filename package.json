@@ -7,7 +7,8 @@
     "start": "node server.js",
     "nodemon": "nodemon server.js",
     "build:image": "docker build -t sp_server -f Dockerfile .",
-    "build:image:mongo_seed": "docker build -t sp_mongo_seed -f Dockerfile.mongo_seed .",
+    "build:image:mongo_seed":
+      "docker build -t sp_mongo_seed -f Dockerfile.mongo_seed .",
     "build:images": "npm run build:image:mongo_seed && npm run build:image"
   },
   "keywords": [],
@@ -18,8 +19,7 @@
     "express": "^4.15.5",
     "guid": "0.0.12",
     "lodash": "^4.17.4",
-    "mongoose": "4.10.8",
-    "passport": "^0.4.0"
+    "mongoose": "4.10.8"
   },
   "devDependencies": {
     "eslint": "^4.8.0",
