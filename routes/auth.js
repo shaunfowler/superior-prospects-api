@@ -15,7 +15,7 @@ router.route("/google").get(
     })
 );
 
-router.route("/logout").get(function(req, res) {
+router.route("/logout").get((req, res) => {
     console.log("Logging out user -", JSON.stringify(req.user));
     req.logout();
     res.redirect("/?info=logged-out");

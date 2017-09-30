@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-router.route("/").get(function(req, res) {
+router.route("/").get((req, res) => {
     res.json(req.user);
 });
 

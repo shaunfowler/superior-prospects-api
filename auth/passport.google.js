@@ -8,15 +8,15 @@ var strategySettings = {
     callbackURL: "http://" + config.apiHostname + "/auth/google/callback"
 };
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser((user, done) => {
     console.log("Serialzed user -", JSON.stringify(user));
     done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser((user, done) => {
     console.log("Deserialized user -", JSON.stringify(user));
 
-    // Check if the user exists in our database
+    // Check if the user exists in the "database"
     if (config.allowedEmailAddresses.indexOf(user.email) === -1) {
         console.error(
             "User not found in allow list - ",
@@ -24,26 +24,23 @@ passport.deserializeUser(function(user, done) {
         );
         done(null, false);
     } else {
-        // console.info('Validated username and password');
+        console.info("Validated username and password");
         done(null, user);
     }
 });
 
 module.exports = passport.use(
-    new GoogleStrategy(strategySettings, function(
-        req,
-        accessToken,
-        refreshToken,
-        profile,
-        done
-    ) {
-        // Build a user object, from the google profile result
-        // This user object will be contained in the request context
-        var user = {
-            id: profile.id,
-            email: profile.emails[0].value,
-            displayName: profile.displayName
-        };
-        done(null, user);
-    })
+    new GoogleStrategy(
+        strategySettings,
+        (req, accessToken, refreshToken, profile, done) => {
+            // Build a user object from the google profile result.
+            // This user object will be contained in the request context.
+            var user = {
+                id: profile.id,
+                email: profile.emails[0].value,
+                displayName: profile.displayName
+            };
+            done(null, user);
+        }
+    )
 );
