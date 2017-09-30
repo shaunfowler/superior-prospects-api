@@ -1,10 +1,10 @@
 const express = require("express");
+const session = require("express-session");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
-const bodyParser = require("body-parser");
-const session = require("express-session");
 
 // Setup google auth strategy
 require("./auth/passport.google");
@@ -18,7 +18,6 @@ mongoose
 
 // Stack it upppp
 var app = express();
-// app.use(express.cookieParser());
 app.use(bodyParser());
 app.use(session({ secret: "keyboard cat" }));
 app.use(passport.initialize());
