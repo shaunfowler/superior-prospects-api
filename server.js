@@ -1,6 +1,5 @@
 var express = require("express");
 var mongoose = require("mongoose");
-const locationsRoute = require("./routes/locations");
 
 // Connect to mongo
 mongoose.Promise = global.Promise;
