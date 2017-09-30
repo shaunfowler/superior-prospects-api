@@ -7,8 +7,7 @@
     "start": "node server.js",
     "nodemon": "nodemon server.js",
     "build:image": "docker build -t sp_server -f Dockerfile .",
-    "build:image:mongo_seed":
-      "docker build -t sp_mongo_seed -f Dockerfile.mongo_seed .",
+    "build:image:mongo_seed": "docker build -t sp_mongo_seed -f Dockerfile.mongo_seed .",
     "build:images": "npm run build:image:mongo_seed && npm run build:image"
   },
   "keywords": [],
@@ -16,9 +15,19 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.15.5"
+    "express": "^4.15.5",
+    "guid": "0.0.12",
+    "lodash": "^4.17.4",
+    "mongoose": "4.10.8",
+    "passport": "^0.4.0"
   },
   "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "nodemon": "^1.12.1"
   }
 }
