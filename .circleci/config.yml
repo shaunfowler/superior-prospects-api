@@ -20,26 +20,26 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             sudo mv /tmp/docker/* /usr/bin
 
-      - run: npm install
+      - run: 
+          name: Restore npm packages
+          command: npm install
 
       - run:
-          name: Login to docker hub
+          name: Login to Docker
           command: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
 
       - run:
-          name: Build docker images
+          name: Build Docker images
           command: |
             set -euo pipefail
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker build -t shaunfowler/sp_server:latest -f Dockerfile .
-              docker build -t shaunfowler/sp_mongo_seed:latest -f Dockerfile .
             else
               docker build -t shaunfowler/sp_server:$CIRCLE_SHA1 -f Dockerfile .
-              docker build -t shaunfowler/sp_mongo_seed:$CIRCLE_SHA1 -f Dockerfile .
             fi
 
       - deploy:
-          name: Deploy
+          name: Deploy to Docker Hub
           command: |
             set -euo pipefail
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
