@@ -6,6 +6,7 @@ const passport = require("passport");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const updatesRoute = require("./routes/updates");
+const propertiesRoute = require("./routes/properties");
 
 // Setup google auth strategy
 require("./auth/passport.google");
@@ -33,6 +34,7 @@ app.use(passport.session());
 app.use("/user", userRoute);
 app.use("/auth", authRoute);
 app.use("/updates", updatesRoute);
+app.use("/properties", propertiesRoute);
 
 // Health endpoint
 app.get("/health", (req, res) => {
