@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "nodemon": "nodemon server.js",
+    "nodemon": "nodemon -L server.js",
     "build:image":
       "docker build -t shaunfowler/sp_server:latest -f Dockerfile .",
     "build:image:mongo_seed":

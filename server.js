@@ -5,16 +5,22 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
+const updatesRoute = require("./routes/updates");
 
 // Setup google auth strategy
 require("./auth/passport.google");
 
 // Connect to mongo
 mongoose.Promise = global.Promise;
+
+mongoose.connection.on("disconnected", () => {
+    console.log("awwwwww");
+});
+
 mongoose
-    .connect("mongodb://localhost/sp")
+    .connect("mongodb://sp_mongo/sp")
     .then(() => console.log("Connection to MongoDB succesful"))
-    .catch(err => console.error(err));
+    .catch(err => console.error("Failed to connect to MongoDB", err));
 
 // Stack it upppp
 var app = express();
@@ -26,6 +32,7 @@ app.use(passport.session());
 // Express routes
 app.use("/user", userRoute);
 app.use("/auth", authRoute);
+app.use("/updates", updatesRoute);
 
 // Health endpoint
 app.get("/health", (req, res) => {
