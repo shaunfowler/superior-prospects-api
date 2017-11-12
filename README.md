@@ -4,13 +4,18 @@
 
 The backend API for http://superiorprospects.com.
 
-## Install Dependencies
+> Note: This service is depdendent on two Docker secrets (`sp_client_id` and `sp_client_secret`) and sould be deployed in swarm. See the composition repo that contains the docker-compose file: https://github.com/shaunfowler/superior-prospects-composition
 
-`npm install`
+### Build
 
-### Build run in docker
+To build the image, run:
 
 ```
 npm run build:image
-npm run start:container
+```
+
+or
+
+```
+docker build -t shaunfowler/sp_server:latest -f Dockerfile .
 ```
