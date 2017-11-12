@@ -8,6 +8,9 @@ The backend API for http://superiorprospects.com.
 
 `npm install`
 
-## Run
+### Build run in docker
 
-`npm run start` or `npm run nodemon`
+```
+npm run build:image
+npm run start:container
+```
