@@ -6,8 +6,10 @@
   "scripts": {
     "start": "node server.js",
     "nodemon": "nodemon -L server.js",
-    "build:image": "docker build -t shaunfowler/sp_server:latest -f Dockerfile .",
-    "build:image:mongo_seed": "docker build -t shaunfowler/sp_mongo_seed:latest -f Dockerfile.mongo_seed .",
+    "build:image":
+      "docker build -t shaunfowler/sp_server:latest -f Dockerfile .",
+    "build:image:mongo_seed":
+      "docker build -t shaunfowler/sp_mongo_seed:latest -f Dockerfile.mongo_seed .",
     "build:images": "npm run build:image:mongo_seed && npm run build:image"
   },
   "keywords": [],
