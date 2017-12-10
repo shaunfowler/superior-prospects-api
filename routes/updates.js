@@ -19,7 +19,7 @@ const create = (req, res) => {
             res.json({ error: error });
             return;
         }
-        res.json({ info: "created" });
+        res.json(update);
     });
 };
 

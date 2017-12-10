@@ -8,16 +8,13 @@ const promBundle = require("express-prom-bundle");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const updatesRoute = require("./routes/updates");
+const propertiesRoute = require("./routes/properties");
 
 // Setup google auth strategy
 require("./auth/passport.google");
 
 // Connect to mongo
 mongoose.Promise = global.Promise;
-
-mongoose.connection.on("disconnected", () => {
-    console.log("awwwwww");
-});
 
 mongoose
     .connect("mongodb://sp_mongo/sp")
@@ -37,6 +34,7 @@ app.use("/*", promBundle({ includePath: true }));
 app.use("/user", userRoute);
 app.use("/auth", authRoute);
 app.use("/updates", updatesRoute);
+app.use("/properties", propertiesRoute);
 
 // Health endpoint
 app.get("/health", (req, res) => {
@@ -45,6 +43,7 @@ app.get("/health", (req, res) => {
 
 // Start express
 const port = process.env.PORT || 4000;
+console.log("Starting...");
 app.listen(port, () => {
     console.log("Express server listening on port " + port);
 });
