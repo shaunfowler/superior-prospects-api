@@ -4,8 +4,8 @@ var router = express.Router();
 
 router.route("/google/callback").get(
     passport.authenticate("google", {
-        successRedirect: "/health",
-        failure: "/health?error=auth"
+        successRedirect: "/",
+        failure: "/?error=auth"
     })
 );
 

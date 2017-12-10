@@ -14,10 +14,6 @@ require("./auth/passport.google");
 // Connect to mongo
 mongoose.Promise = global.Promise;
 
-mongoose.connection.on("disconnected", () => {
-    console.log("awwwwww");
-});
-
 mongoose
     .connect("mongodb://sp_mongo/sp")
     .then(() => console.log("Connection to MongoDB succesful"))
@@ -43,6 +39,7 @@ app.get("/health", (req, res) => {
 
 // Start express
 const port = process.env.PORT || 4000;
+console.log("Starting...");
 app.listen(port, () => {
     console.log("Express server listening on port " + port);
 });
