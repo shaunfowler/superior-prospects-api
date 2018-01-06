@@ -1,24 +1,28 @@
 [
-  {
-    "_id": "0afe6732-2117-42a9-b5b0-d60128ef0403",
-    "name": "Property One",
-    "safeName": "property-one",
-    "description": "desc 1234",
-    "body": "<h2>Property One</h2><p>Some info...</p>",
-    "visible": true,
-    "locationRefId": "226e506a-1f40-49a6-98e0-1dc00c9b7447",
-    "created": "2013-04-07T00:00:00.000Z",
-    "__v": 0
-  },
-  {
-    "_id": "23192cd2-42e9-42c6-a4ce-f6db82f2c23d",
-    "name": "Property Two",
-    "safeName": "property-two",
-    "description": "desc 5678",
-    "body": "<h2>Property Two</h2><p>Some info...</p>",
-    "visible": true,
-    "locationRefId": "c5348daf-ee53-44ae-bfc6-2b3584d33ce5",
-    "created": "2014-12-31T21:09:00.000Z",
-    "__v": 0
-  }
+    {
+        "_id": "0afe6732-2117-42a9-b5b0-d60128ef0403",
+        "name": "Artisan umami bespoke",
+        "safeName": "property-one",
+        "description":
+            "Nisi pitchfork butcher, humblebrag locavore veniam 3 wolf moon. Knausgaard squid est ullamco. Cillum nulla etsy cornhole chambray forage mustache photo booth banjo street art literally knausgaard schlitz. Bushwick organic roof party dolor, master cleanse jianbing tacos sint est.",
+        "body":
+            "<p>Artisan umami bespoke literally, esse lumbersexual magna. Officia letterpress non cronut magna selfies echo park hammock in. Beard butcher master cleanse, excepteur tilde gochujang man bun et cold-pressed. Authentic four loko migas, polaroid pour-over id duis pickled. Lomo sustainable hammock readymade live-edge jianbing ex dreamcatcher banjo et aesthetic forage YOLO. Craft beer dolore coloring book kickstarter etsy truffaut. Enim slow-carb non cliche chambray hashtag.</p><p>Woke yr nisi ea deserunt 3 wolf moon kinfolk lo-fi church-key tbh enim VHS fam quis drinking vinegar. Lo-fi officia paleo viral tacos selvage eiusmod woke jean shorts before they sold out. Fam veniam 3 wolf moon, jean shorts ut typewriter poke seitan fixie consequat activated charcoal. Chicharrones do taxidermy kitsch cornhole typewriter.</p><p>Edison bulb shoreditch selfies elit, semiotics nostrud magna mumblecore beard ex shabby chic williamsburg letterpress heirloom. Chillwave palo santo truffaut kombucha chicharrones enamel pin messenger bag 3 wolf moon fam migas. Hammock butcher eiusmod roof party, food truck qui helvetica deserunt la croix shabby chic. Gentrify photo booth single-origin coffee bicycle rights pinterest, ut reprehenderit truffaut vice. Scenester labore vinyl, mustache try-hard raclette mixtape nisi.</p>",
+        "visible": true,
+        "locationRefId": "226e506a-1f40-49a6-98e0-1dc00c9b7447",
+        "created": "2013-04-07T00:00:00.000Z",
+        "__v": 0
+    },
+    {
+        "_id": "23192cd2-42e9-42c6-a4ce-f6db82f2c23d",
+        "name": "Dolore truffaut woke",
+        "safeName": "property-two",
+        "description":
+            "Mumblecore beard narwhal, vice umami occupy readymade sartorial. Health goth af pariatur banjo shoreditch cardigan. Franzen brunch listicle freegan nisi. Hot chicken lyft man bun drinking vinegar post-ironic taiyaki slow-carb.",
+        "body":
+            "<p>Flexitarian meditation pop-up tumeric portland truffaut 8-bit gastropub VHS cred. Keffiyeh exercitation poke gluten-free yr prism. Fam church-key drinking vinegar wayfarers duis ad master cleanse pork belly forage hell of, selfies fashion axe neutra austin bushwick. Hexagon knausgaard pop-up four loko proident umami biodiesel sint aliqua photo booth seitan live-edge cardigan hammock kombucha.</p><p>IPhone adaptogen velit cold-pressed, deserunt sartorial franzen humblebrag culpa godard synth est tilde williamsburg asymmetrical. Lumbersexual crucifix try-hard semiotics keytar fingerstache edison bulb qui shaman ethical art party tumeric bespoke distillery. Aesthetic neutra in trust fund, meditation ipsum hella gentrify tbh mumblecore gastropub chillwave. Tilde forage VHS cloud bread est woke, consequat brooklyn aliqua gochujang. Normcore fashion axe poke +1 lo-fi drinking vinegar hammock nulla lomo do elit four loko franzen. Dolore truffaut woke, cold-pressed keffiyeh godard single-origin coffee. Reprehenderit magna aesthetic laboris.</p><p>Do air plant man bun fugiat. Art party paleo XOXO, pinterest ennui vice tempor listicle four loko mlkshk yuccie esse laborum quis shoreditch. Do taxidermy cornhole semiotics prism, live-edge master cleanse lyft post-ironic organic food truck stumptown. Synth food truck four dollar toast, consequat pinterest fanny pack unicorn sartorial chartreuse 90's velit commodo adaptogen. Intelligentsia aliqua ullamco, master cleanse la croix food truck viral elit coloring book echo park nisi drinking vinegar small batch.</p>",
+        "visible": true,
+        "locationRefId": "c5348daf-ee53-44ae-bfc6-2b3584d33ce5",
+        "created": "2014-12-31T21:09:00.000Z",
+        "__v": 0
+    }
 ]
