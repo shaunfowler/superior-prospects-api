@@ -19,7 +19,10 @@ mongoose.Promise = global.Promise;
 mongoose
     .connect("mongodb://sp_mongo/sp")
     .then(() => console.log("Connection to MongoDB succesful"))
-    .catch(err => console.error("Failed to connect to MongoDB", err));
+    .catch(err => {
+        console.error("Failed to connect to MongoDB", err);
+        throw err;
+    });
 
 // Stack it upppp
 const app = express();
