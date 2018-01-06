@@ -1,16 +1,18 @@
 [
-  {
-    "_id": "226e506a-1f40-49a6-98e0-1dc00c9b7447",
-    "name": "Location One",
-    "safeName": "location-one",
-    "body": "<p>test 1234</p>",
-    "__v": 0
-  },
-  {
-    "_id": "c5348daf-ee53-44ae-bfc6-2b3584d33ce5",
-    "name": "Location Two",
-    "safeName": "location two",
-    "body": "<p>test 5678</p>",
-    "__v": 0
-  }
+    {
+        "_id": "226e506a-1f40-49a6-98e0-1dc00c9b7447",
+        "name": "Laboris vinyl",
+        "safeName": "location-one",
+        "body":
+            "Letterpress vaporware enamel pin snackwave unicorn mollit est drinking vinegar edison bulb irony sriracha. Laboris vinyl ut ipsum, glossier hexagon banh mi sartorial small batch hammock franzen godard. Pitchfork kinfolk salvia franzen cornhole, dolore church-key non. Velit farm-to-table four dollar toast tattooed, quinoa minim single-origin coffee. Consequat cillum etsy culpa fugiat four dollar toast pitchfork DIY PBR&B. Synth vaporware fugiat gluten-free organic.",
+        "__v": 0
+    },
+    {
+        "_id": "c5348daf-ee53-44ae-bfc6-2b3584d33ce5",
+        "name": "Twee heirloom",
+        "safeName": "location-two",
+        "body":
+            "Ullamco veniam fashion axe dolore mlkshk sartorial blue bottle leggings palo santo vexillologist subway tile lo-fi artisan dolore. Twee heirloom nostrud cray, locavore magna beard polaroid pug bitters ramps. Chartreuse dolor you probably haven't heard of them, keytar ut copper mug enamel pin chia fashion axe. XOXO raw denim cloud bread microdosing kogi, sriracha tilde crucifix forage disrupt ut offal. 3 wolf moon put a bird on it helvetica glossier, freegan bitters tattooed enamel pin stumptown semiotics bushwick tote bag pickled. Blue bottle chambray master cleanse twee actually sriracha.",
+        "__v": 0
+    }
 ]
