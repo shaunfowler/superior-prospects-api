@@ -4,10 +4,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const promBundle = require("express-prom-bundle");
-// const metricsRoute = require("./routes/metrics");
+const healthRoute = require("./routes/health");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const updatesRoute = require("./routes/updates");
+const locationsRoute = require("./routes/locations");
 const propertiesRoute = require("./routes/properties");
 
 // Setup google auth strategy
@@ -15,7 +16,6 @@ require("./auth/passport.google");
 
 // Connect to mongo
 mongoose.Promise = global.Promise;
-
 mongoose
     .connect("mongodb://sp_mongo/sp")
     .then(() => console.log("Connection to MongoDB succesful"))
@@ -27,26 +27,22 @@ mongoose
 // Stack it upppp
 const app = express();
 app.use(bodyParser());
-app.use(session({ secret: "keyboard cat" }));
+app.use(session({ secret: "1afcfdfb-94a1-5d57-f3c3-b07b1a530ddb" }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/*", promBundle({ includePath: true }));
 
 // Express routes
-// app.use("/metrics", metricsRoute);
+app.use("/health", healthRoute);
 app.use("/user", userRoute);
 app.use("/auth", authRoute);
 app.use("/updates", updatesRoute);
+app.use("/locations", locationsRoute);
 app.use("/properties", propertiesRoute);
-
-// Health endpoint
-app.get("/health", (req, res) => {
-    res.sendStatus(200);
-});
 
 // Start express
 const port = process.env.PORT || 4000;
-console.log("Starting...");
+console.log("Starting service...");
 app.listen(port, () => {
-    console.log("Express server listening on port " + port);
+    console.log(`Listening on port ${port}`);
 });
