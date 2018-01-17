@@ -7,9 +7,6 @@ var ModelLocation = require("../schema/location");
 
 const getAll = (req, res) => {
     ModelLocation.find((error, locations) => {
-        _.forEach(locations, (p, i) => {
-            delete locations[i]._doc.body;
-        });
         res.json(locations);
     });
 };
