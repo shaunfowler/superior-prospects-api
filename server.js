@@ -1,3 +1,4 @@
+const process = require("process");
 const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
@@ -21,7 +22,7 @@ mongoose
     .then(() => console.log("Connection to MongoDB succesful"))
     .catch(err => {
         console.error("Failed to connect to MongoDB", err);
-        throw err;
+        process.exit(1);
     });
 
 // Stack it upppp
