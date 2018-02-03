@@ -75,13 +75,26 @@ const updateById = (req, res) => {
         }
 
         if (property) {
-            _.merge(property, req.body);
+            const {
+                name,
+                description,
+                locationRefId,
+                body,
+                visible
+            } = req.body;
+            _.merge(property, {
+                name,
+                description,
+                locationRefId,
+                body,
+                visible
+            });
             property.save(error => {
                 if (error) {
                     res.status(500).send(error);
                     return;
                 }
-                res.sendStatus(204);
+                res.status(200).send(property);
             });
         } else {
             res.sendStatus(404);
