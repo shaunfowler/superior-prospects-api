@@ -1,37 +1,40 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server.js",
-    "nodemon": "nodemon -L server.js",
-    "build:image": "docker build -t shaunfowler/sp_server:latest -f Dockerfile .",
-    "build:image:mongo_seed": "docker build -t shaunfowler/sp_mongo_seed:latest -f Dockerfile.mongo_seed .",
-    "build:images": "npm run build:image:mongo_seed && npm run build:image"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.15.5",
-    "express-prom-bundle": "^3.2.1",
-    "express-session": "^1.15.6",
-    "guid": "0.0.12",
-    "lodash": "^4.17.4",
-    "mongoose": "4.10.8",
-    "passport": "^0.4.0",
-    "passport-google-oauth": "^1.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^4.8.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.2.0",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "nodemon": "^1.12.1"
-  }
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server.js",
+        "nodemon": "nodemon -L server.js",
+        "nodemon:noauth": "BYPASS_AUTH=true nodemon -L server.js",
+        "build:image":
+            "docker build -t shaunfowler/sp_server:latest -f Dockerfile .",
+        "build:image:mongo_seed":
+            "docker build -t shaunfowler/sp_mongo_seed:latest -f Dockerfile.mongo_seed .",
+        "build:images": "npm run build:image:mongo_seed && npm run build:image"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "cookie-parser": "^1.4.3",
+        "express": "^4.15.5",
+        "express-prom-bundle": "^3.2.1",
+        "express-session": "^1.15.6",
+        "guid": "0.0.12",
+        "lodash": "^4.17.4",
+        "mongoose": "4.10.8",
+        "passport": "^0.4.0",
+        "passport-google-oauth": "^1.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^4.8.0",
+        "eslint-config-standard": "^10.2.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.2.0",
+        "eslint-plugin-promise": "^3.5.0",
+        "eslint-plugin-standard": "^3.0.1",
+        "nodemon": "^1.12.1"
+    }
 }

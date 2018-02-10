@@ -12,6 +12,10 @@ const updatesRoute = require("./routes/updates");
 const locationsRoute = require("./routes/locations");
 const propertiesRoute = require("./routes/properties");
 
+if (process.env.BYPASS_AUTH === "true") {
+    console.log("\n\n*** RUNNING WITH AUTHENTICATION DISABLED ***\n\n");
+}
+
 // Setup google auth strategy
 require("./auth/passport.google");
 
