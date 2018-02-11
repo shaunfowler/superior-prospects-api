@@ -1,3 +1,4 @@
+var Guid = require("guid");
 const multer = require("multer");
 const path = require("path");
 var express = require("express");
@@ -42,7 +43,20 @@ const create = (req, res) => {
             req.params.propertyId
         }`
     );
-    res.sendStatus(200);
+
+    const { propertyId } = req.params;
+    const { originalname, size, mimetype } = req.file;
+    var media = new ModelMedia({
+        _id: Guid.raw(),
+        fileName: originalname,
+        fileSize: size,
+        propertyRefId: propertyId,
+        type: mimetype,
+        created: new Date()
+    });
+    media.save();
+
+    res.json(media);
 };
 
 // File upload middleware
