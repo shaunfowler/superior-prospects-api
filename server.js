@@ -1,4 +1,3 @@
-const path = require("path");
 const process = require("process");
 const express = require("express");
 const session = require("express-session");
@@ -6,7 +5,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const promBundle = require("express-prom-bundle");
-const multer = require("multer");
 const healthRoute = require("./routes/health");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
@@ -14,22 +12,6 @@ const updatesRoute = require("./routes/updates");
 const locationsRoute = require("./routes/locations");
 const propertiesRoute = require("./routes/properties");
 const mediaRoute = require("./routes/media");
-
-// File upload middleware
-const upload = multer({
-    limits: {
-        fileSize: 50 * 1024 * 1024 // 50 MB
-    },
-    storage: multer.diskStorage({
-        destination: (req, file, cb) => {
-            const dirName = path.join(__dirname, "uploads");
-            cb(null, dirName);
-        },
-        filename: (req, file, cb) => {
-            cb(null, file.originalname);
-        }
-    })
-});
 
 // Warning message if auth is disabled
 if (process.env.BYPASS_AUTH === "true") {
@@ -66,12 +48,6 @@ app.use("/updates", updatesRoute);
 app.use("/locations", locationsRoute);
 app.use("/properties", propertiesRoute);
 app.use("/media", mediaRoute);
-
-// File upload endpoint
-app.post("/upload", upload.single("media"), function(req, res) {
-    console.log(JSON.stringify(req.file, null, 4));
-    res.send(201);
-});
 
 // Start express
 const port = process.env.PORT || 4000;
