@@ -11,6 +11,7 @@ const authRoute = require("./routes/auth");
 const updatesRoute = require("./routes/updates");
 const locationsRoute = require("./routes/locations");
 const propertiesRoute = require("./routes/properties");
+const mediaRoute = require("./routes/media");
 
 if (process.env.BYPASS_AUTH === "true") {
     console.log("\n\n*** RUNNING WITH AUTHENTICATION DISABLED ***\n\n");
@@ -44,6 +45,7 @@ app.use("/auth", authRoute);
 app.use("/updates", updatesRoute);
 app.use("/locations", locationsRoute);
 app.use("/properties", propertiesRoute);
+app.use("/media", mediaRoute);
 
 // Start express
 const port = process.env.PORT || 4000;
