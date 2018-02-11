@@ -52,7 +52,7 @@ const create = (req, res) => {
         fileSize: size,
         propertyRefId: propertyId,
         type: mimetype,
-        created: new Date()
+        created: new Date().toISOString()
     });
     media.save();
 

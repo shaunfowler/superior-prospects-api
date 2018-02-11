@@ -25,12 +25,15 @@ const getAllVisible = (req, res) => {
 };
 
 const create = (req, res) => {
-    var property = new ModelProperty(req.body);
-    property._id = Guid.raw();
-    property.safeName = property.name
-        .toLowerCase()
-        .split(" ")
-        .join("-");
+    var property = new ModelProperty(
+        Object.assign({}, req.body, {
+            _id: Guid.raw(),
+            safeName: property.name
+                .toLowerCase()
+                .split(" ")
+                .join("-")
+        })
+    );
     property.save(error => {
         if (error) {
             res.status(500).send(error);
