@@ -1,3 +1,6 @@
+var Guid = require("guid");
+const multer = require("multer");
+const path = require("path");
 var express = require("express");
 var router = express.Router();
 var authMiddleware = require("../auth/middleware");
@@ -7,10 +10,6 @@ const getAll = (req, res) => {
     ModelMedia.find((error, properties) => {
         res.json(properties);
     });
-};
-
-const create = (req, res) => {
-    res.sendStatus(200);
 };
 
 const getById = (req, res) => {
@@ -38,9 +37,59 @@ const deleteById = (req, res) => {
     });
 };
 
+const create = (req, res) => {
+    console.log(
+        `Uploading file ${req.file.originalName} for property ${
+            req.params.propertyId
+        }`
+    );
+
+    const { propertyId } = req.params;
+    const { originalname, size, mimetype } = req.file;
+    var media = new ModelMedia({
+        _id: Guid.raw(),
+        fileName: originalname,
+        fileSize: size,
+        propertyRefId: propertyId,
+        type: mimetype,
+        created: new Date().toISOString()
+    });
+    media.save();
+
+    res.json(media);
+};
+
+// File upload middleware
+const uploadMiddleware = multer({
+    limits: {
+        fileSize: 50 * 1024 * 1024 // 50 MB
+    },
+    storage: multer.diskStorage({
+        destination: (req, file, cb) => {
+            const dirName = path.join(__dirname, "/../uploads");
+            cb(null, dirName);
+        },
+        filename: (req, file, cb) => {
+            cb(null, file.originalname);
+        }
+    }),
+    fileFilter: function(req, file, cb) {
+        var filetypes = /jpeg|jpg|png|pdf|officedocument|openxmlformats|xlsx|docx/;
+        var mimetype = filetypes.test(file.mimetype);
+        var extname = filetypes.test(
+            path.extname(file.originalname).toLowerCase()
+        );
+        if (mimetype && extname) {
+            return cb(null, true);
+        }
+        cb(`File upload only supports the following filetypes - ${filetypes}`);
+    }
+});
+
 router.route("/").get(getAll);
 router.route("/").post(create);
 router.route("/:id").get(getById);
 router.route("/:id").delete(authMiddleware, deleteById);
+router.route("/:propertyId").post(uploadMiddleware.single("media"), create);
 
 module.exports = router;

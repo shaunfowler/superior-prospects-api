@@ -11,9 +11,12 @@ const getAll = (req, res) => {
 };
 
 const create = (req, res) => {
-    var update = new Model(req.body);
-    update._id = Guid.raw();
-    update.created = new Date().toString();
+    var update = new Model(
+        Object.assign({}, req.body, {
+            _id: Guid.raw(),
+            crated: new Date().toISOString()
+        })
+    );
     update.save(error => {
         if (error) {
             res.json({ error: error });

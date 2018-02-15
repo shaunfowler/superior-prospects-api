@@ -1,3 +1,4 @@
+const path = require("path");
 const process = require("process");
 const express = require("express");
 const session = require("express-session");
@@ -13,6 +14,7 @@ const locationsRoute = require("./routes/locations");
 const propertiesRoute = require("./routes/properties");
 const mediaRoute = require("./routes/media");
 
+// Warning message if auth is disabled
 if (process.env.BYPASS_AUTH === "true") {
     console.log("\n\n*** RUNNING WITH AUTHENTICATION DISABLED ***\n\n");
 }
@@ -32,11 +34,15 @@ mongoose
 
 // Stack it upppp
 const app = express();
-app.use(bodyParser());
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(session({ secret: "1afcfdfb-94a1-5d57-f3c3-b07b1a530ddb" }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/*", promBundle({ includePath: true }));
+
+// Serve the uplaods dir
+app.use("/static", express.static(path.join(__dirname, "uploads")));
 
 // Express routes
 app.use("/health", healthRoute);
