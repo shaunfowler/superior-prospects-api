@@ -72,7 +72,18 @@ const uploadMiddleware = multer({
         filename: (req, file, cb) => {
             cb(null, file.originalname);
         }
-    })
+    }),
+    fileFilter: function(req, file, cb) {
+        var filetypes = /jpeg|jpg|png|pdf|officedocument|openxmlformats|xlsx|docx/;
+        var mimetype = filetypes.test(file.mimetype);
+        var extname = filetypes.test(
+            path.extname(file.originalname).toLowerCase()
+        );
+        if (mimetype && extname) {
+            return cb(null, true);
+        }
+        cb(`File upload only supports the following filetypes - ${filetypes}`);
+    }
 });
 
 router.route("/").get(getAll);

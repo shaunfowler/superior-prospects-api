@@ -1,3 +1,4 @@
+const path = require("path");
 const process = require("process");
 const express = require("express");
 const session = require("express-session");
@@ -39,6 +40,9 @@ app.use(session({ secret: "1afcfdfb-94a1-5d57-f3c3-b07b1a530ddb" }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/*", promBundle({ includePath: true }));
+
+// Serve the uplaods dir
+app.use("/static", express.static(path.join(__dirname, "uploads")));
 
 // Express routes
 app.use("/health", healthRoute);
