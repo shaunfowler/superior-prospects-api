@@ -28,7 +28,7 @@ const create = (req, res) => {
     var property = new ModelProperty(
         Object.assign({}, req.body, {
             _id: Guid.raw(),
-            safeName: property.name
+            safeName: req.body.name
                 .toLowerCase()
                 .split(" ")
                 .join("-")
