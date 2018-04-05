@@ -68,7 +68,7 @@ const updateById = (req, res) => {
                     res.status(500).send(error);
                     return;
                 }
-                res.sendStatus(204);
+                res.json(location);
             });
         } else {
             res.sendStatus(404);
