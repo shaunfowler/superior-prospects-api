@@ -1,10 +1,13 @@
-var Guid = require("guid");
+const Guid = require("guid");
+const fs = require("fs");
 const multer = require("multer");
 const path = require("path");
 var express = require("express");
 var router = express.Router();
 var authMiddleware = require("../auth/middleware");
 var ModelMedia = require("../schema/media");
+
+const uploadDir = path.join(__dirname, "/../uploads");
 
 const getAll = (req, res) => {
     ModelMedia.find((error, properties) => {
@@ -28,11 +31,19 @@ const getById = (req, res) => {
 };
 
 const deleteById = (req, res) => {
-    ModelMedia.findOneAndRemove({ _id: req.params.id }, error => {
+    ModelMedia.findOneAndRemove({ _id: req.params.id }, (error, doc) => {
         if (error) {
             res.status(500).send(error);
             return;
         }
+        const filepath = path.join(uploadDir, doc.fileName);
+        fs.unlink(filepath, error => {
+            if (error) {
+                console.error(error);
+            } else {
+                console.log(`Deleting media item '${filepath}'`);
+            }
+        });
         res.sendStatus(204);
     });
 };
@@ -66,8 +77,7 @@ const uploadMiddleware = multer({
     },
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
-            const dirName = path.join(__dirname, "/../uploads");
-            cb(null, dirName);
+            cb(null, uploadDir);
         },
         filename: (req, file, cb) => {
             cb(null, file.originalname);
